@@ -2,7 +2,7 @@ const { findByEmail } = require("../interfaces/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-async function loginHandler(req: any, res: any) {
+async function loginHandler(req: any, res: any): Promise<any> {
   try {
     const { email, password } = req.body;
     // Validate email and password
@@ -13,7 +13,7 @@ async function loginHandler(req: any, res: any) {
     }
 
     // Retrieve user from the database
-    const user = await findByEmail(email);
+    const user: any = await findByEmail(email);
 
     // Check if user exists and password is correct
     if (!user || !(await bcrypt.compare(password, user.password))) {

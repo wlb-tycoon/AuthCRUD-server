@@ -6,7 +6,7 @@ import { findById } from "../interfaces/user";
 
 async function checkAuthHandler(req: any, res: any) {
   try {
-    const token = req.headers.authorization
+    const token: any = req.headers.authorization
       ? req.headers.authorization.replace("Bearer ", "")
       : req.cookies.token;
 

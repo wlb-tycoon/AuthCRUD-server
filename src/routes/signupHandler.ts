@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { findByEmail, createUser } = require("../interfaces/user");
 
-async function signupHandler(req: any, res: any) {
+async function signupHandler(req: any, res: any): Promise<void> {
   const { name, email, password } = req.body;
   // Validate name, email and password
   if (!name || !email || !password) {
@@ -10,16 +10,16 @@ async function signupHandler(req: any, res: any) {
       .send({ message: "Please provide a name, email and password" });
   }
 
-  const existingUser = await findByEmail(email);
+  const existingUser: any = await findByEmail(email);
   if (existingUser) {
     return res.code(400).send({ message: "Email ID Already Exists...." });
   }
 
   try {
     // Create the user in the database
-    const user = await createUser(name, email, password);
+    const user: any = await createUser(name, email, password);
 
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
+    const token: any = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
 
