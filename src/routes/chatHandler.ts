@@ -1,4 +1,3 @@
-// const openaiApiKey = "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";
 const openaiApiKey = process.env.openaiApiKey;
 
 import axios, { AxiosResponse } from "axios";
@@ -19,8 +18,6 @@ async function chatHandler(req: any, res: any): Promise<void> {
         },
       }
     );
-    // console.log("the response: ", response);
-    console.log("the answer is: ", response.data.choices);
     res.code(200).send({ response: response.data.choices[0].message.content });
   } catch (error) {
     res

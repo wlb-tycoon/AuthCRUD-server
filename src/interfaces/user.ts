@@ -1,5 +1,4 @@
 const { hash } = require("bcrypt");
-// const { pool } = require("./db");
 import pool from "./db";
 
 export async function findByEmail(email: string): Promise<unknown> {

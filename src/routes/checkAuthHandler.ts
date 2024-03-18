@@ -1,12 +1,10 @@
-// const jwt = require("jsonwebtoken");
 import jwt from "jsonwebtoken";
-// const findById = require("../interfaces/user");
 require("dotenv").config();
 import { findById } from "../interfaces/user";
 
 async function checkAuthHandler(req: any, res: any) {
   try {
-    const token = req.headers.authorization
+    const token: any = req.headers.authorization
       ? req.headers.authorization.replace("Bearer ", "")
       : req.cookies.token;
 
