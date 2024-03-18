@@ -1,4 +1,3 @@
-// const openaiApiKey = "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";
 const openaiApiKey = process.env.openaiApiKey;
 
 import axios, { AxiosResponse } from "axios";
