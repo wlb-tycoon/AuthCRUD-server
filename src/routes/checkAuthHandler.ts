@@ -1,6 +1,4 @@
-// const jwt = require("jsonwebtoken");
 import jwt from "jsonwebtoken";
-// const findById = require("../interfaces/user");
 require("dotenv").config();
 import { findById } from "../interfaces/user";
 

@@ -18,8 +18,6 @@ async function chatHandler(req: any, res: any): Promise<void> {
         },
       }
     );
-    // console.log("the response: ", response);
-    console.log("the answer is: ", response.data.choices);
     res.code(200).send({ response: response.data.choices[0].message.content });
   } catch (error) {
     res
